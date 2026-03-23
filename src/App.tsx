@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
-import { Navigate, Route, Routes, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import type { Dispatch, SetStateAction } from "react";
 import { BottomSheet } from "./components/BottomSheet";
 import { SmartImage } from "./components/SmartImage";
@@ -82,7 +82,13 @@ function LandingPage() {
 
       <header className="flex items-center justify-between border-b border-[#e5e5e5] px-6 py-3 md:px-12 lg:px-20">
         <div className="flex items-center gap-8">
-          <span className="font-serif text-xl tracking-[0.15em] md:text-2xl">BANTER</span>
+          <Link
+            to="/"
+            className="font-serif text-xl tracking-[0.15em] transition-opacity hover:opacity-75 md:text-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            aria-label="Banter — Home"
+          >
+            BANTER
+          </Link>
           <nav className="hidden items-center gap-6 text-[11px] font-semibold uppercase tracking-[0.08em] text-neutral-600 md:flex">
             <span className="cursor-pointer hover:text-black">Get Pierced</span>
             <span className="cursor-pointer hover:text-black">Trending</span>

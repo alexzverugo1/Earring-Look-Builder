@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface HeaderProps {
   count: number;
   showBack?: boolean;
@@ -17,8 +19,14 @@ export function Header({ count, showBack, onBack, showClose, onClose }: HeaderPr
         )}
       </div>
       <div className="text-center">
-        <span className="font-serif text-xl tracking-[0.15em]">BANTER</span>
-        <span className="ml-1 hidden text-[9px] font-light tracking-[0.04em] text-neutral-400 md:inline">by Piercing Pagoda</span>
+        <Link
+          to="/"
+          className="inline-block transition-opacity hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          aria-label="Banter — Home"
+        >
+          <span className="font-serif text-xl tracking-[0.15em]">BANTER</span>
+          <span className="ml-1 hidden text-[9px] font-light tracking-[0.04em] text-neutral-400 md:inline">by Piercing Pagoda</span>
+        </Link>
       </div>
       <div className="flex w-20 items-center justify-end gap-3">
         {showClose ? (

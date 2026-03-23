@@ -6,7 +6,12 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
 
 export function publicImage(filename: string): string {
   const name = filename.replace(/^\//, "");
-  return `${base}${name}`;
+  // Encode each segment so spaces/special chars work on static hosts (e.g. Render) and in <video src>
+  const encoded = name
+    .split("/")
+    .map((segment) => encodeURIComponent(segment))
+    .join("/");
+  return `${base}${encoded}`;
 }
 
 /** All .avif assets currently in public/ */
