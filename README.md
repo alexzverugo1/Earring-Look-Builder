@@ -22,8 +22,15 @@ This app uses client-side routing. The server must return `index.html` for route
 
 - **Vercel:** [`vercel.json`](vercel.json) rewrites are included.
 - **Netlify:** [`public/_redirects`](public/_redirects) is included.
+- **Render:** Use a **Static Site** with:
+  - **Build Command:** `npm install && npm run build`
+  - **Publish Directory:** `dist`
+  - **Redirects / Rewrites:** rewrite `/*` → `/index.html` (SPA fallback)  
+  Or sync [`render.yaml`](render.yaml) as a Blueprint (includes the SPA rewrite).
 - **nginx:** `try_files $uri $uri/ /index.html;`
 - **Vite dev:** works out of the box.
+
+**Note:** Do not commit the `dist/` folder — it is listed in [`.gitignore`](.gitignore). Render (and other hosts) should run `npm run build` on each deploy so assets stay in sync with `public/` and source.
 
 ## Scripts
 

@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Production build (always regenerate with `npm run build`)
+dist/
+
+# Local env
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Vite
+*.local

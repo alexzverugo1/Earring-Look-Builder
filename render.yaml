@@ -1,0 +1,16 @@
+# Render Blueprint — static site + SPA routing
+# https://render.com/docs/blueprint-spec
+#
+# After connecting this repo, set `name` below to match your Render service name
+# if you already have one, or create a new static site from this blueprint.
+
+services:
+  - type: web
+    name: earring-look-builder
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
